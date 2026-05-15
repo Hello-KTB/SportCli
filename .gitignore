@@ -174,3 +174,10 @@ Temporary Items
 *.icloud
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,intellij,java
+
+# HTML files
+*.html
+
+# Gradle build output
+build/
+.gradle/
