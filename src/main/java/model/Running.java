@@ -28,6 +28,7 @@ public class Running extends Sport {
     public void setCadence(int cadence) {
         this.cadence = cadence;
     }
+
     @Override
     public void exercise() {
         System.out.println("------------|Running|--------------");
@@ -36,7 +37,7 @@ public class Running extends Sport {
         System.out.print("러닝 시간 (Hour) : ");
         int t = sc.nextInt();
 
-        setTime(getTime() + t);
-        setCalorie(getCalorie() + getDistance() * getWeight());
+        this.time += t;
+        this.calorie += (this.distance * this.weight);
     }
 }

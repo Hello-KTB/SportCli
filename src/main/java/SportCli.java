@@ -5,12 +5,15 @@ import java.util.Scanner;
 
 public class SportCli {
     public static void main(String[] args) {
-        Sport sport = new Sport(0,0,0);
+        Scanner sc = new Scanner(System.in);
+        System.out.print("현재 몸무게 : ");
+        int weight = sc.nextInt();
+
+        Sport sport = new Sport(weight,0,0);
         Running running = null;
         Football football = null;
-        Scanner sc = new Scanner(System.in);
+        System.out.println("내가 " + weight + "kg이라고? 운동해야지!!");
 
-        System.out.println("이런 벌써 살이 이렇게나 쪄버렸다고? 운동을 해야겠군!!");
 
         while(true) {
             System.out.println("------------|OPTIONS|--------------");
@@ -26,8 +29,12 @@ public class SportCli {
                 break;
             }
             else if(op == 1) {
-                running = new Running(sport.getWeight(), sport.getTime(), sport.getCalorie(), 0, 0);
+                running = new Running(sport.getWeight(), 0, 0, 0, 0);
                 running.exercise();
+                System.out.println(sport.getTime());
+                System.out.println(sport.getCalorie());
+                System.out.println(running.getDistance());
+                System.out.println(running.getTime());
             }
             else if(op == 2) {
                 football = new Football(sport.getWeight(), sport.getTime(), sport.getCalorie(), 0, 0, 0);
@@ -37,7 +44,8 @@ public class SportCli {
                 sport.currentStatus();
             }
             else {
-                System.out.println("그런 운동은 없습니다. 다시 선택해주십시오!");
+                System.out.println("------------|Error|--------------");
+                System.out.println("0~3번까지의 숫자만 선택하세요!");
                 continue;
             }
         }

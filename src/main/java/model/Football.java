@@ -50,7 +50,7 @@ public class Football extends Sport {
         setSet(sc);
 
         System.out.println("총 " + getSet() + "경기동안 " + getGoal() + "골, " + getAssist() + "어시스트 달성!");
-        setTime(getTime() + getSet());
-        setCalorie(getSet() * getWeight());
+        this.time += getSet();
+        this.calorie += (getSet() * super.getWeight());
     }
 }
