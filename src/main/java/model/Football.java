@@ -7,12 +7,14 @@ public class Football extends Sport {
     private int goal;
     private int assist;
     private int set;
+    private int win;
 
-    public Football(int weight, int time, int calorie, int  goal, int assist, int set) {
-        super(weight, time, calorie);
+    public Football(int weight, int hour, int minute, int calorie, int  goal, int assist, int set, int win) {
+        super(weight, hour, minute, calorie);
         this.goal = goal;
         this.assist = assist;
         this.set = set;
+        this.win = win;
     }
 
     public void setGoal(Scanner sc) {
@@ -27,6 +29,9 @@ public class Football extends Sport {
         this.set = sc.nextInt();
     }
 
+    public void setWin(int win) {
+        this.win = win;
+    }
     public int getGoal() {
         return goal;
     }
@@ -39,18 +44,39 @@ public class Football extends Sport {
         return set;
     }
 
+    public int getWin() {
+        return win;
+    }
+
+    @Override
+    public void currentStatus() {
+        System.out.println("------------|Football Status|--------------");
+        System.out.println("총 " + getSet() + "경기 중 "+ getWin() + "승을 챙겼습니다.");
+        System.out.println("내 경기스탯은 " + getGoal() + "골 " + getAssist() + "어시스트이다.");
+    }
+
     @Override
     public void exercise() {
         System.out.println("------------|Football|--------------");
-        System.out.print("골 : ");
+        System.out.print("골(goal): ");
         setGoal(sc);
-        System.out.print("어시스트 : ");
+        System.out.print("어시스트(assist): ");
         setAssist(sc);
-        System.out.print("경기 수 (전후반 1시간) : ");
+        System.out.print("경기 수(전후반 1시간): ");
         setSet(sc);
+        System.out.print("경기 승리 수(win) : ");
 
-        System.out.println("총 " + getSet() + "경기동안 " + getGoal() + "골, " + getAssist() + "어시스트 달성!");
-        this.time += getSet();
-        this.calorie += (getSet() * super.getWeight());
+        int w = 0;
+        while(true) {
+            w = sc.nextInt();
+            if(w > getSet() || w < 0) {
+                System.out.print("승리 수 재입력: ");
+            }
+            else break;
+        }
+        setWin(w);
+        setCalorie(7 * getWeight() * getHour());
+
+        currentStatus();
     }
 }

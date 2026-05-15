@@ -2,12 +2,14 @@ package model;
 
 public class Sport {
     protected int weight;
-    protected int time;
-    protected int calorie;
+    protected int hour;
+    protected int minute;
+    protected double calorie;
 
-    public Sport(int weight, int time, int calorie) {
+    public Sport(int weight, int hour, int minute, double calorie) {
         this.weight = weight;
-        this.time = time;
+        this.hour = hour;
+        this.minute = minute;
         this.calorie = calorie;
     }
 
@@ -15,11 +17,15 @@ public class Sport {
         return weight;
     }
 
-    public int getTime() {
-        return time;
+    public int getHour() {
+        return hour;
     }
 
-    public int getCalorie() {
+    public int getMinute() {
+        return minute;
+    }
+
+    public double getCalorie() {
         return calorie;
     }
 
@@ -27,17 +33,17 @@ public class Sport {
         this.weight = weight;
     }
 
-    public void setTime(int time) {
-        this.time = time;
+    public void setTime(int hour, int minute) {
+        this.hour = hour;
+        this.minute = minute;
     }
 
-    public void setCalorie(int calorie) {
+    public void setCalorie(double calorie) {
         this.calorie = calorie;
     }
 
     public void currentStatus() {
-        System.out.println("------------|Status|--------------");
-        System.out.println("총 운동 시간은 " + getTime() + "시간이고, 총 소모 칼로리는 " + getCalorie() + "kcal입니다");
+        System.out.println("현재 상황");
     }
 
     public void exercise() {
@@ -46,8 +52,6 @@ public class Sport {
 
     public void stop() {
         System.out.println("------------|Good Bye|--------------");
-        System.out.println("지금까지 운동한 시간: " + getTime() + "시간");
-        System.out.println("지금까지 소모한 칼로리: " + getCalorie() + "kcal");
-        System.out.println("내일 이어서 해야지!");
+        System.out.println("오늘은 여기까지! 내일 이어서 해야지!");
     }
 }
