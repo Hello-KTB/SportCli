@@ -50,7 +50,7 @@ public class Running extends Sport {
             System.out.println("평균적인 수준입니다!");
         }
         else if(cadence >= 170 && cadence < 180) {
-            System.out.println("엘리트 선수나 순력된 러너 수준입니다!");
+            System.out.println("엘리트 선수나 숙력된 러너 수준입니다!");
         }
         else {
             System.out.println("비정상입니다!");

@@ -1,10 +1,10 @@
 package model;
 
 public class Sport {
-    protected int weight;
-    protected int hour;
-    protected int minute;
-    protected double calorie;
+    private int weight;
+    private int hour;
+    private int minute;
+    private double calorie;
 
     public Sport(int weight, int hour, int minute, double calorie) {
         this.weight = weight;
